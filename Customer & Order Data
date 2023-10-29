@@ -85,7 +85,7 @@ WHERE length(orderid) = 6
 AND orderid <> 'Order ID'
 
 #Question 12.What was the average quantity of products purchased per account in February? (Hint: just like question 3, we want the overall average, not the average for each account individually).
-SELECT sum(quantity)/count(cust.acctnum)
+SELECT ROUND(sum(quantity)/count(cust.acctnum)) as ave_qty_per_acct
 FROM BIT_DB.FebSales Feb
 LEFT JOIN BIT_DB.customers cust
 ON FEB.orderid=cust.order_id
